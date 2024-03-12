@@ -1,0 +1,33 @@
+---
+
+name: 'dbsql_dbt_tpch'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sql_endpoints'
+
+vars:
+  scalefactor: 10
+  benchmark: 10
+  stage: stagename
+  stagingschema: rstpcdi11stg
+  bucketname: bucketname  # bigquery, redshift only
+  storageaccountname: synapsemigrationdemoadls
+  catalog: hive_metastore
+  prodschema: rstpcdi11prod
+
+model-paths: ["Databricks/models/main"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['dbsql_dbt_tpch', 'dbt_utils']
