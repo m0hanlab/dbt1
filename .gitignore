@@ -1,0 +1,11 @@
+
+target/
+dbt_packages/
+logs/
+credentials.properties
+credentials.json
+.java-version
+.vscode/
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/

@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: hr
+    database: bq-benchmark-unit
+    schema: TPC_SF10_STG_bronze
+
+    tables:
+      - name: hr

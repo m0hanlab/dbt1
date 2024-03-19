@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: brokerage
+    database: bq-benchmark-unit
+    schema: TPC_SF10_STG_bronze   
+
+
+    tables:
+      - name: DAILY_MARKET
+      - name: WATCH_HISTORY
+      - name: TRADE
+      - name: TRADE_HISTORY
+      - name: HOLDING_HISTORY
+      - name: CASH_TRANSACTION
+      
