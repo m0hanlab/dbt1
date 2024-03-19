@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
@@ -13,12 +14,34 @@ profile: 'dbt_tpcdi'
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
+=======
+---
+
+name: 'dbsql_dbt_tpch'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sql_endpoints'
+
+vars:
+  scalefactor: 10
+  benchmark: 10
+  stage: stagename
+  stagingschema: rstpcdi11stg
+  bucketname: bucketname  # bigquery, redshift only
+  storageaccountname: synapsemigrationdemoadls
+  catalog: hive_metastore
+  prodschema: rstpcdi11prod
+
+model-paths: ["Databricks/models/main"]
+>>>>>>> fd9accdd82af8535c136a834748a6de529460433
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
+<<<<<<< HEAD
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
@@ -42,3 +65,13 @@ models:
     work:
       +schema: work
       +materialized: view
+=======
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['dbsql_dbt_tpch', 'dbt_utils']
+>>>>>>> fd9accdd82af8535c136a834748a6de529460433

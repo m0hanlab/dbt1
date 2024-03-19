@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 packages:
   - package: dbt-labs/dbt_utils
     version: 1.1.1
+=======
+---
+
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 0.8.0
+  - package: dbt-labs/spark_utils
+    version: 0.3.0
+  - package: dbt-labs/dbt_external_tables
+    version: 0.8.2
+>>>>>>> fd9accdd82af8535c136a834748a6de529460433

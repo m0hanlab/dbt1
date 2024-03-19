@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 dbt_tpcdi:
   outputs:
     dev:
@@ -13,3 +14,77 @@ dbt_tpcdi:
       type: bigquery
   target: dev
 
+=======
+---
+
+sql_endpoints:
+  target: databricks
+
+  outputs:
+    redshift:
+      type: redshift
+      host: "{{ env_var('REDSHIFT_TEST_HOST') }}"
+      user: "{{ env_var('REDSHIFT_TEST_USER') }}"
+      pass: "{{ env_var('REDSHIFT_TEST_PASS') }}"
+      dbname: "{{ env_var('REDSHIFT_TEST_DBNAME') }}"
+      port: "{{ env_var('REDSHIFT_TEST_PORT') | as_number }}"
+      schema: audit_helper_integration_tests_redshift
+      threads: 25
+
+    bigquery:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('BIGQUERY_SERVICE_KEY_PATH') }}"
+      project: "{{ env_var('BIGQUERY_TEST_DATABASE') }}"
+      schema: audit_helper_integration_tests_bigquery
+      threads: 25
+
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_TEST_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_TEST_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_TEST_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_TEST_ROLE') }}"
+      database: "{{ env_var('SNOWFLAKE_TEST_DATABASE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_TEST_WAREHOUSE') }}"
+      schema: audit_helper_integration_tests_snowflake
+      threads: 25
+
+    databricks:
+      type: databricks
+      method: http
+      catalog: "{{ env_var('DATABRICKS_TEST_CATALOG') }}"
+      schema: "{{ env_var('DATABRICKS_TEST_SCHEMA') }}"
+      host: "{{ env_var('DATABRICKS_TEST_HOST') }}"
+      token: "{{ env_var('DATABRICKS_TEST_TOKEN') }}"
+      http_path: "{{ env_var('DATABRICKS_TEST_PATH') }}"
+      threads: 25
+
+    synapse:
+      type: synapse
+      driver: 'ODBC Driver 18 for SQL Server'  # (The ODBC Driver installed on your system)
+      server: "{{ env_var('SYNAPSE_SERVER') }}"
+      port: 1433
+      encrypt: true
+      trust_cert: true
+      database: "{{ env_var('SYNAPSE_DATABASE') }}"
+      schema: "{{ env_var('SYNAPSE_SCHEMA') }}"
+      authentication: "{{ env_var('SYNAPSE_AUTH') }}"
+      user: "{{ env_var('SYNAPSE_TEST_USER') }}"
+      password: "{{ env_var('SYNAPSE_TEST_PASSWORD') }}"
+      threads: 25
+
+    fabric:
+      type: fabric
+      driver: 'ODBC Driver 18 for SQL Server'  # (The ODBC Driver installed on your system)
+      server: "{{ env_var('FABRIC_SERVER') }}"
+      port: 1433
+      encrypt: true
+      trust_cert: true
+      database: "{{ env_var('FABRIC_DATABASE') }}"
+      schema: "{{ env_var('FABRIC_SCHEMA') }}"
+      authentication: "{{ env_var('FABRIC_AUTH') }}"
+      user: "{{ env_var('FABRIC_TEST_USER') }}"
+      password: "{{ env_var('FABRIC_TEST_PASSWORD') }}"
+      threads: 25
+>>>>>>> fd9accdd82af8535c136a834748a6de529460433

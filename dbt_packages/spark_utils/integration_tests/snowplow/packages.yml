@@ -1,0 +1,6 @@
+---
+
+packages:
+  - local: ../../
+  - local: ../../snowplow
+  - local: ../../snowplow/integration_tests
