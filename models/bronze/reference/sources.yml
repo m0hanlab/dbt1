@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: reference
+    database: tpc-analysis
+    schema: TPC_SF10_STG
+
+    tables:
+      - name: STATUS_TYPE
+      - name: INDUSTRY 
+      - name: DATE
+      - name: TAX_RATE
+      - name: TRADE_TYPE

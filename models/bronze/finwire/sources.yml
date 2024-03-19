@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: finwire
+    database: tpc-analysis
+    schema: TPC_SF10_STG
+
+    tables:
+      - name: CMP
+      - name: SEC
+      - name: FIN

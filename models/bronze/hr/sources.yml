@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: hr
+    database: tpc-analysis
+    schema: TPC_SF10_STG
+
+    tables:
+      - name: HR
